@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+	@@include('html/_head.htm',{ "title":"modal" })
+	<body class="body">
+		<div class="page-container">
+			@@include('html/_header.htm',{})
+			<main>
+				<div
+					class="absolute z-50 top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 w-full"
+				>
+					<div class="container">
+						<div
+							class="rounded-md relative bg-dark-main px-32 py-42 lg:px-[.84rem] lg:py-[.74rem]"
+						>
+							<button class="btn__close"></button>
+							<div
+								class="pb-16 lg:pb-32 border-b-1 border-solid border-white lg:flex mb-16 sm:mb-24"
+							>
+								<h2
+									class="text-20 sm:text-[.32rem] lg:text-[.40rem] font-semibold leading-normal lg:leading-[110%] mb-16 sm:mb-0 lg:min-w-[6.5rem] lg:mr-24"
+								>
+									Begin your hair transplant journey
+									<span class="text-main"> with online consultation</span>
+								</h2>
+								<p>
+									Leave your information and our managers will contact you soon
+								</p>
+							</div>
+
+							<form
+								action="#"
+								class="grid sm:grid-cols-2 lg:grid-cols-[repeat(2,_3.3rem)_auto] gap-8"
+							>
+								<div class="text-s flex flex-col font-medium">
+									<label for="name" class="mb-4">Name/Surname</label>
+									<input
+										type="text"
+										id="name"
+										name="name"
+										class="bg-transparent rounded-sm border-1 border-solid border-white h-[.5rem] text-m p-12"
+									/>
+									<div class="form__message"></div>
+								</div>
+								<div class="text-s flex flex-col font-medium">
+									<label for="name" class="mb-4">Phone number</label>
+									<input
+										type="text"
+										id="phone"
+										name="phone"
+										class="bg-transparent rounded-sm border-1 border-solid border-white h-[.5rem] text-m p-12"
+									/>
+									<div class="form__message"></div>
+								</div>
+								<div
+									class="text-s flex flex-col font-medium lg:row-start-2 lg:row-end-3 lg:col-start-1 lg:col-end-2"
+								>
+									<label for="name" class="mb-4">e-mail</label>
+									<input
+										type="text"
+										id="e-mail"
+										name="e-mail"
+										class="bg-transparent rounded-sm border-1 border-solid border-white h-[.5rem] text-m p-12"
+									/>
+									<div class="form__message"></div>
+								</div>
+								<div
+									class="text-s flex flex-col font-medium lg:row-start-2 lg:row-end-3 lg:col-start-2 lg:col-end-3"
+								>
+									<label for="comment" class="mb-4"
+										>When do you plan to come?</label
+									>
+									<input
+										type="text"
+										id="comment"
+										name="name"
+										class="bg-transparent rounded-sm border-1 border-solid border-white h-[.5rem] text-m p-12"
+									/>
+									<div class="form__message"></div>
+								</div>
+								<div
+									class="btn btn__gray h-[.5rem] mt-8 sm:col-start-2 sm:col-end-3 lg:row-start-2 lg:row-end-3 lg:col-start-3 lg:col-end-4 self-end lg:ml-24 lg:w-[3.3rem]"
+								>
+									Make appointment
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+
+				<!-- <div
+					class="absolute z-50 top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 w-full sm:w-[6rem] lg:w-[9.1rem] px-[var(--container-gap)]"
+				>
+					<div
+						class="rounded-md bg-dark-main px-32 py-42 lg:px-[.84rem] lg:py-[.74rem] relative"
+					>
+						<button class="btn__close right-12"></button>
+						<div
+							class="pb-16 lg:pb-32 border-b-1 border-solid border-white lg:flex mb-16 sm:mb-24"
+						>
+							<h2
+								class="text-20 sm:text-[.32rem] lg:text-[.40rem] font-semibold leading-normal lg:leading-[110%] mb-16 sm:mb-0 sm:max-w-[4.5rem] text-center sm:text-start"
+							>
+								The application
+								<span class="text-main"> was successfully sent</span>
+							</h2>
+						</div>
+						<div class="sm:flex items-center justify-between">
+							<p
+								class="text-l max-w-[3rem] mb-24 sm:mb-0 text-center sm:text-start"
+							>
+								Our managers will contact you to clarify the details
+							</p>
+							<button class="btn btn__gray w-full sm:w-[2.95rem] h-[.5rem]">
+								Go back
+							</button>
+						</div>
+					</div>
+				</div> -->
+			</main>
+			@@include('html/_footer.htm',{})
+		</div>
+		@@include('html/_modal.htm',{}) @@include('html/_svg.htm',{})
+		@@include('html/_js.htm',{})
+	</body>
+</html>

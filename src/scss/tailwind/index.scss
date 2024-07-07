@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.transition-link {
+		@apply transition-colors duration-[0.3s] ease-linear;
+	}
+	.promo-slide {
+		@apply w-full lg:w-[7.4rem] sm:w-[6.4rem] lg:h-[6.6rem] sm:h-[5.6rem] h-[3.8rem] ml-auto size-full relative sm:before:w-[5.7rem] before:w-[2.9rem] sm:before:h-[3.5rem] before:h-[1.8rem] before:absolute before:rounded before:bg-[#000] before:z-20 before:-right-[.64rem] sm:before:-bottom-[1.75rem] before:-bottom-[.75rem] before:rotate-[161.969deg] before:blur-[1.75rem];
+	}
+	.label-before {
+		@apply absolute text-light-main sm:px-16 sm:py-12 px-8 py-4 rounded-sm gradient-liable sm:-left-[.4rem] left-14 sm:top-[1.2rem] top-24 h5 z-20;
+	}
+	.label-after {
+		@apply absolute px-8 py-4 sm:px-16 sm:py-12 rounded-sm gradient-liable sm:right-[1.4rem] right-[.5rem] sm:top-[1.45rem] top-[.65rem] h5 z-20;
+	}
+}

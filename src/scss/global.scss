@@ -1,0 +1,208 @@
+//header
+.language-switch {
+	position: relative;
+	font-size: var(--txt-s);
+	font-weight: 500;
+	height: max-content;
+	@media all and (min-width: 1024px) {
+		&:hover {
+			.language-switch__header {
+				background-color: var(--main);
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
+				border-color: var(--main);
+				span {
+					transform: rotate(90deg);
+				}
+			}
+			.language-switch__content {
+				max-height: 1.2rem;
+			}
+		}
+	}
+}
+.language-switch__header {
+	cursor: pointer;
+	position: relative;
+	width: 0.62rem;
+	height: 0.28rem;
+	padding: gem(4) gem(4) gem(4) gem(8);
+	border: 2px solid var(--white);
+	border-radius: 0.1rem;
+	transition: all 0.4s linear;
+	color: var(--white);
+	display: flex;
+	align-items: center;
+	z-index: 10;
+	line-height: normal;
+	span {
+		font-size: gem(16);
+		margin-left: gem(4);
+		transform: rotate(-90deg);
+		transition: transform 0.4s ease-in-out;
+	}
+	&.active {
+		background-color: var(--main);
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		border-color: var(--main);
+		span {
+			transform: rotate(90deg);
+		}
+	}
+}
+.language-switch__content {
+	transition: all 0.4s linear;
+	position: absolute;
+	box-shadow: 0 15px 15px rgba(56, 114, 151, 0.1);
+	top: 0.3rem;
+	left: 0;
+	width: 100%;
+	margin: 0;
+	max-height: 0;
+	overflow: hidden;
+	border-radius: gem(10);
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	background-color: #fff;
+	z-index: 5;
+	backdrop-filter: blur(0.01rem);
+	color: var(--black);
+	.language-switch__languages {
+		padding: 0.08rem 0;
+		li {
+			&:nth-child(1) {
+				margin-top: 0;
+			}
+			margin-top: 0.06rem;
+			transition: color 0.4s ease-in-out;
+
+			a {
+				padding: 0 gem(16);
+				min-width: 100%;
+			}
+			@media all and (min-width: 1024px) {
+				&:hover {
+					color: var(--dark-main);
+				}
+			}
+		}
+		.current-lang {
+			display: none;
+		}
+	}
+}
+
+//main screen
+
+.gradient-liable {
+	background: linear-gradient(
+		259deg,
+		rgba(255, 255, 255, 0.5) 0%,
+		rgba(255, 255, 255, 0.13) 93.77%
+	);
+	box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+}
+.gradient-youtube {
+	background: linear-gradient(
+		262deg,
+		rgba(255, 255, 255, 0.5) 4.2%,
+		rgba(255, 255, 255, 0.13) 97.11%
+	);
+	box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(4px);
+}
+
+// About us
+.section__bg {
+	border-radius: 20px 20px 0px 0px;
+	background: linear-gradient(180deg, #484848 0%, #343434 100%);
+	box-shadow: 0px -10px 15px 0px rgba(0, 0, 0, 0.1);
+}
+
+.turn {
+	transform: scale(-1, 1);
+}
+
+.before-after {
+	.swiper {
+		overflow: visible;
+		min-width: 0;
+		.swiper-slide {
+			display: flex;
+			align-items: center;
+			height: 100%;
+			.before-after__item {
+				position: relative;
+
+				.label {
+					padding: 0.06rem 0.12rem;
+					position: absolute;
+					z-index: 30;
+					opacity: 0;
+					visibility: hidden;
+					border-radius: 10px;
+					@media all and (max-width: 640px) {
+						padding: 0.05rem;
+						line-height: none;
+					}
+				}
+
+				.image__container {
+					position: relative;
+					.after {
+						&::before {
+							content: '';
+							position: absolute;
+							top: 0;
+							left: 0;
+							bottom: 0;
+							right: 0;
+							background: var(--black);
+							opacity: 0.5;
+							z-index: 20;
+							transition: opacity 0.3s linear;
+						}
+					}
+				}
+			}
+		}
+
+		.swiper-slide-active {
+			padding-left: 0.3rem;
+			width: 5.8rem;
+			display: block;
+			@media all and (max-width: 640px) {
+				padding-left: 0.12rem;
+				width: 3.5rem;
+			}
+			.before-after__item {
+				.label {
+					visibility: visible;
+					opacity: 1;
+				}
+				.image__container {
+					width: 2.73rem;
+					height: 3.53rem;
+					@media all and (max-width: 640px) {
+						width: 1.7rem;
+						height: 2.2rem;
+					}
+					.after {
+						&::before {
+							opacity: 0;
+						}
+					}
+					.after {
+						transition: transform 0.5s ease-in;
+						transform: rotate(8.5deg) translate(94%, 7%);
+					}
+				}
+			}
+		}
+		.swiper-slide-prev {
+			justify-content: end;
+		}
+	}
+}
