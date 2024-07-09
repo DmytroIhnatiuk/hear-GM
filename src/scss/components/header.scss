@@ -1,15 +1,13 @@
 .header {
 	position: fixed;
-	// background: rgba(52, 52, 52, 0.95);
+	transition: transform 0.3s linear;
 	height: var(--header-height);
 	@media all and (max-width: 640px) {
 		background: var(--black);
 	}
 }
 .header-hidden {
-	transition: height 0.3s linear;
-	overflow: hidden;
-	height: 0;
+	transform: translateY(-100%);
 }
 .fixed {
 	background: rgba(52, 52, 52, 0.95);

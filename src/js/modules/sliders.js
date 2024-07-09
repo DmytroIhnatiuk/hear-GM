@@ -2,27 +2,14 @@ import Swiper from 'swiper/bundle'
 import { getElement, getElements } from '../core/index.js'
 
 function promoSlider() {
-	// Перевіряємо, чи є елемент з атрибутом data-swiper="promo-slider"
 	if (!getElement('[data-swiper="promo-slider"]')) return
-
-	// Ініціалізація Swiper
 	new Swiper('[data-swiper="promo-slider"]', {
 		spaceBetween: 16,
-		slidesPerView: 1,
-		autoplay: true,
-		// Закоментовані опції, які можна додати за потреби
-		loop: true,
-		speed: 700,
-		effect: 'creative',
-		creativeEffect: {
-			prev: {
-				shadow: true,
-				translate: [0, 0, -400],
-			},
-			next: {
-				translate: ['100%', 0, 0],
-			},
+		effect: 'fade',
+		fadeEffect: {
+			crossFade: true,
 		},
+		speed: 1000,
 		navigation: {
 			nextEl: '.promo-slider-next',
 			prevEl: '.promo-slider-prev',
@@ -99,10 +86,8 @@ function beforeAfter() {
 	if (!getElement('[data-swiper="beforeAfter"]')) return
 	new Swiper('[data-swiper="beforeAfter"]', {
 		initialSlide: 1,
-		loop: true,
 		centeredSlides: true,
-		spaceBetween: 64,
-		speed: 700,
+		speed: 1000,
 		navigation: {
 			nextEl: '.beforeAfter-next',
 			prevEl: '.beforeAfter-prev',
