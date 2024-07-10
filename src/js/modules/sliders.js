@@ -9,7 +9,8 @@ function promoSlider() {
 		fadeEffect: {
 			crossFade: true,
 		},
-		speed: 1000,
+		loop: true,
+		speed: 700,
 		navigation: {
 			nextEl: '.promo-slider-next',
 			prevEl: '.promo-slider-prev',

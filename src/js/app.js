@@ -2,7 +2,7 @@ window['FLS'] = true
 // Підключення основного файлу стилів
 
 import '../scss/style.scss'
-import 'swiper/css'
+import 'swiper/css/bundle'
 import * as flsFunctions from './core/functions.js'
 import accordion from './modules/accordion.js'
 import {
