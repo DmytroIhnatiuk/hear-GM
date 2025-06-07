@@ -38,12 +38,14 @@ const config = {
 	optimization: {
 		minimize: false
 	},
-	entry: [
-		`${paths.src}/js/app.js`
-	],
+	entry: {
+		app: `${paths.src}/js/app.js`,
+		home: `${paths.src}/js/pages/home.js`,
+
+	},
 	output: {
 		path: `${paths.build}`,
-		filename: 'js/app.min.js',
+		filename: 'js/[name].min.js',
 		publicPath: '/'
 	},
 	devServer: {

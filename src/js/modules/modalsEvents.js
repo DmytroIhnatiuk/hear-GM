@@ -3,91 +3,103 @@ import Form from "./Form.js";
 import {translateFields, lang} from "./base.js";
 import {getElement, getElements} from "../core/index.js";
 import {copyText} from "./helpers.js";
+import Modal from "./modal.js";
 
 
 export default function modalsEvents(target) {
-    if (target.dataset.target === 'size') {
-        modal.classList.add('modal-size');
-        modalBody.firstElementChild.innerHTML = renderSizeModal();
+
+    if (target === 'callback') {
+        getElement('.modal__content', modalBody).innerHTML = renderCallbackModal();
+        new Form('[data-form="callback"]').create().init();
     }
+    new Modal('.modal').openModal();
 
 }
 
-function renderDonateModal(target) {
-    const selected = target.dataset.services ? 'Послуга' : 'Лікар';
+function renderCallbackModal() {
 
+    return `            <div
+                    class=" modal-callback max-w-[12.4rem] rounded-md relative bg-dark-main p-32  lg:px-[.84rem] lg:py-[.74rem]"
+            >
 
-    return `<div class="content">
-<div class="content__header">
-<div class="h4 f-weight_500 border_bottom">Місія</div>
-</div>
-      <div class="f-size_s text-color_grey">BENEFICIARY</div>
-      <div data-copy  class="text-uppercase f-size_l f-weight_400 mb_22"><span>National Bank of Ukraine</span><button class="icon-copy ml_18"></button></div>
-      
-           <div class="f-size_s text-color_grey">BENEFICIARY BIC</div>
-      <div data-copy  class="text-uppercase f-size_l f-weight_400 mb_22"><span>NBUAUAUX</span><button class="icon-copy ml_18"></button></div>
-      
-             <div class="f-size_s text-color_grey">BENEFICIARY ADDRESS</div>
-      <div data-copy  class=" f-size_l f-weight_400 mb_22"><span>9 Instytutska St, Kyiv, 01601, Ukraine</span><button class="icon-copy ml_18"></button></div>
-    
-             <div class="f-size_s text-color_grey">ACCOUNT NUMBER</div>
-      <div  data-copy class="text-uppercase f-size_l f-weight_400 mb_22"><span>804790258</span><button class="icon-copy ml_18"></button></div>
-    
-             <div class="f-size_s text-color_grey">BENEFICIARY BANK NAME </div>
-      <div data-copy  class=" f-size_l f-weight_400 mb_22"><span>JP MORGAN CHASE BANK, New York</span><button class="icon-copy ml_18"></button></div>
-    
-             <div class="f-size_s text-color_grey">BENEFICIARY BANK BIC</div>
-      <div data-copy  class="text-uppercase f-size_l f-weight_400 mb_22"><span>CHASUS33</span><button class="icon-copy ml_18"></button></div>
-    
-
-      <div data-copy  class="text-uppercase f-size_l f-weight_400 mb_22"><span>ABA 0210 0002 1</span><button class="icon-copy ml_18"></button></div>
-    
-       <div class="f-size_s text-color_grey">BENEFICIARY BANK ADDRESS</div>
-      <div  data-copy class=" f-size_l f-weight_400 mb_22"><span>383 Madison Avenue, New&nbsp;York, NY 10017, USA</span><button class="icon-copy ml_18"></button></div>
-    
-       <div class="f-size_s text-color_grey">PURPOSE OF PAYMENT</div>
-      <div data-copy  class="text-uppercase f-size_l f-weight_400 mb_22"><span>for ac 47330992708</span><button class="icon-copy ml_18"></button></div>
-    
-
-    </div>`
-}
-
-function renderSizeModal() {
-
-
-    return `<h2 class="text-uppercase mb_32-22">Розмірна сітка</h2>
-                <div class="image mb_32-22">
+                <div
+                        class="pb-16 lg:pb-32 border-b-1 border-solid border-white lg:flex mb-16 sm:mb-24"
+                >
+                    <h2
+                            class="text-20 sm:text-[.32rem] lg:text-[.40rem] font-semibold leading-[.2rem] lg:leading-[110%] mb-16 sm:mb-0 lg:min-w-[6.5rem] lg:mr-24"
+                    >
+                        Begin your hair transplant journey
+                        <span class="text-main"> with online consultation</span>
+                    </h2>
+                    <p>
+                        Leave your information and our managers will contact you soon
+                    </p>
                 </div>
-                <div class="f-size_m f-weight_500 mb_24-16">
-                    Якщо у вас не вийшло підібрати розмір, наші менеджери допоможуть вам!
-                </div>
-                <a href="#" class="btn btn__outline">
-                    Написати
-                </a>`
-}
 
+                <form
+data-form="callback"
+                        class="grid sm:grid-cols-2 lg:grid-cols-[repeat(2,_3.3rem)_auto] gap-x-8 gap-y-[.12rem]"
+                >
+                                   <input class="hidden" type="hidden" value="Hairglobalmedik WEBSITE">
+                    <div class="text-s flex flex-col font-medium form-item ">
+                        <label for="callback-name" class="mb-4 font-normal"
+                        >Name/Surname</label
+                        >
+                        <input
+                                type="text"
+                                id="callback-name"
+                                name="name"
+                                class="bg-transparent rounded-sm border-1 border-solid border-white h-[.5rem] text-m p-12"
+                        />
+                        <div class="form-item__message"></div>
+                    </div>
+                    <div class="text-s flex flex-col font-medium  form-item">
+                        <label for="callback-phone" class="mb-4 font-normal"
+                        >Phone number</label
+                        >
+                        <input
+                                type="text"
+                                id="callback-phone"
+                                name="phone"
+                                class="bg-transparent rounded-sm border-1 border-solid border-white h-[.5rem] text-m p-12"
+                        />
+                        <div class="form-item__message"></div>
+                    </div>
+                    <div
+                            class="  form-item text-s flex flex-col font-medium lg:row-start-2 lg:row-end-3 lg:col-start-1 lg:col-end-2"
+                    >
+                        <label for="callback-email" class="mb-4 font-normal">E-mail</label>
+                        <input
+                                type="email"
+                                id="callback-email"
+                                name="email"
+                                class="bg-transparent rounded-sm border-1 border-solid border-white h-[.5rem] text-m p-12"
+                        />
+                        <div class="form-item__message"></div>
+                    </div>
+                    <div
+                            class="text-s   form-item flex flex-col font-medium lg:row-start-2 lg:row-end-3 lg:col-start-2 lg:col-end-3"
+                    >
+                        <label for="callback-comment" class="mb-4 font-normal"
+                        >When do you plan to come?</label
+                        >
+                        <input
+                                type="text"
+                                id="callback-comment"
+                                name="comment"
+                                class="bg-transparent rounded-sm border-1 border-solid border-white h-[.5rem] text-m p-12"
+                        />
+                        <div class="form-item__message"></div>
+                    </div>
 
-function renderFormAnswer(target) {
-    modal.classList.add('modal__form-answer');
-    modalBody.className = 'form-answer modal__body text-center';
-    const {formSuccessText, formErrorText, formSuccessTitle, formErrorTitle} = translateFields;
-    let title, subtitle;
-    if (target.dataset.form == 'success') {
-        title = formSuccessTitle[lang];
-        subtitle = formSuccessText[lang];
-        modalBody.parentElement.classList.add('success');
-    } else {
-        title = formErrorTitle[lang];
-        subtitle = formErrorText[lang];
-    }
-    return `
-
-            <div class="modal__title">
-                   <h2 class="text-uppercase">${title}</h2>
-            </div>
-<div class="modal__subtitle h3">
- ${subtitle}
-</div> `
+                    <button
+                            type="submit"
+                            class="btn btn__gray h-[.5rem] mt-8 sm:col-start-2 sm:col-end-3 lg:row-start-2 lg:row-end-3 lg:col-start-3 lg:col-end-4 self-end lg:ml-24 lg:w-[3.3rem]"
+                    >
+                      Online consultation
+                    </button>
+                </form>
+            </div>`
 }
 
 

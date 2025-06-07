@@ -1,7 +1,8 @@
 .header {
 	position: fixed;
-	transition: transform 0.3s linear;
-	height: var(--header-height);
+
+	background: transparent;
+	transition: transform .3s linear, background-color .3s linear;
 	@media all and (max-width: 640px) {
 		background: var(--black);
 	}

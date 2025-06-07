@@ -9,7 +9,10 @@
   --section-padding: #{gem(50)};
   --section-padding-decrement: #{gem(-50)};
   --font-family: #{Manrope};
-
+  @media all and (min-width: 1024px) {
+    --container-gap: #{gem(100)};
+    --container-gap-decrement: #{gem(-100)};
+  }
   @media all and (min-width: 640px) {
     --header-height: #{gem(100)};
     --header-height-decrement: #{gem(-100)};
@@ -18,9 +21,6 @@
     --section-padding: #{gem(70)};
     --section-padding-decrement: #{gem(-70)};
   }
-   @media all and (min-width: 1024px) {
-    --container-gap: #{gem(100)}; 
-    --container-gap-decrement: #{gem(-100)}; 
-  }
+
 
 }
