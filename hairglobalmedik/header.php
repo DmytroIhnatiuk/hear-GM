@@ -25,7 +25,6 @@ $langs = pll_the_languages(array('echo' => 0));
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js" async></script>
     <script src="https://assets.bookimed.com/partners/widget/bookimed-widget.js" async></script>
 </head>
-
 <body class="body 1">
 <div class="page-container">
     <header class="header z-50 min-w-full">
