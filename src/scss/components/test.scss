@@ -1,0 +1,204 @@
+.test {
+
+
+  &__wrapper {
+    border-radius: .2rem;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), linear-gradient(180deg, #27C1C2 0%, #25AEAF 100%);
+    box-shadow: 0 .2rem .2rem 0 rgba(0, 0, 0, 0.25);
+    min-height: 5.82rem;
+    @media all and (max-width: 992px) {
+      min-height: auto;
+
+    }
+
+
+  }
+
+  &__content {
+
+
+    .swiper-wrapper {
+      margin-bottom: .2rem;
+    }
+
+    .testing {
+
+      .fraction {
+        top: 0;
+        left: 0;
+        width: gem(63);
+        height: gem(63);
+        border-radius: 50%;
+        border: 1px solid var(--white);
+        display: flex;
+        font-weight: 400;
+        align-items: center;
+        justify-content: center;
+
+        span {
+          color: var(--white);
+          font-weight: 400;
+          line-height: normal;
+          font-size: .2rem;
+        }
+
+
+
+        @media all and (max-width: 992px) {
+          width: gem(50);
+          height: gem(50);
+        }
+        @media all and (max-width: 767px) {
+          width: .34rem;
+          height: .34rem;
+          left: -.24rem;
+          span {
+            font-size: .16rem;
+          }
+        }
+      }
+
+      .test__slider {
+        position: static;
+        //width: gem(550);
+        //height: gem(342);
+
+        @media all and (max-width: 992px) {
+          width: 100%;
+        }
+
+        .test__slide {
+          width: 100%;
+
+
+          form {
+            .btn {
+
+              margin-top: .2rem;
+              padding: .16rem 0;
+              width: 1.5rem;
+              position: absolute;
+              right: 0;
+              @media all and (max-width: 576px) {
+                width: calc((100% - .1rem) / 2);
+              }
+
+              &[type='submit'] {
+                width: 100% !important;
+                position: relative;
+              }
+            }
+          }
+        }
+
+
+      }
+
+
+      .answer__item {
+        width: max-content;
+        cursor: pointer;
+
+        &.active {
+          .checkbox {
+            background-color: var(--white);
+
+            span {
+              color: #27BDBE;
+            }
+
+          }
+        }
+
+        @media all and (min-width: 992px) {
+          &:hover {
+            .checkbox {
+              background-color: var(--white);
+            }
+          }
+        }
+
+
+      }
+    }
+
+    .swiper-slide {
+      height: auto;
+      opacity: 0 !important;
+
+      &:last-child {
+        .test__slide {
+
+
+          .h4 {
+            padding-left: .72rem;
+            min-height: gem(63);
+            display: flex;
+            align-items: center;
+            @media all and (max-width: 992px) {
+              padding-left: .6rem;
+            }
+            @media all and (max-width: 576px) {
+              min-height: gem(50);
+            }
+          }
+        }
+      }
+
+      &-prev, &-next {
+        opacity: 0 !important;
+      }
+
+      &-active {
+        opacity: 1 !important;
+      }
+    }
+
+    .swiper-slide {
+      &.swiper-slide-active {
+        opacity: 1 !important;
+      }
+    }
+
+  }
+
+  .swiper-button-disabled {
+    opacity: .8;
+
+    &.border-2 {
+      border-color: var(--gray);
+    }
+  }
+
+  button {
+
+    &.disabled {
+      opacity: .8;
+
+      &.bg-dark-gray {
+        opacity: .4;
+      }
+    }
+    &.opacity-0{
+      opacity: 0!important;
+    }
+  }
+}
+
+.checkbox {
+  width: gem(30);
+  height: gem(30);
+  border-radius: gem(4);
+  border: gem(1) solid var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .4s ease-in-out;
+
+  span {
+    font-size: gem(30);
+    line-height: gem(30);
+    color: transparent;
+  }
+
+}

@@ -1,0 +1,53 @@
+.form {
+  &-item {
+    position: relative;
+
+    &.invalid {
+      color: var(--accent);
+
+      input::placeholder {
+        color: var(--accent);
+      }
+
+      .iti__selected-country-primary {
+        background: var(--accent);
+      }
+
+      input {
+
+        border-color: var(--accent);
+      }
+    }
+
+    &__message {
+      position: absolute;
+      top: 100%;
+      font-size: .1rem;
+      height: .12rem;
+      line-height: .12rem;
+    }
+  }
+}
+
+.policy {
+  input:checked {
+    + .checkbox {
+      background-color: var(--white);
+
+      span {
+        color: #27BDBE;
+      }
+    }
+  }
+
+  &.invalid {
+    color: var(--accent);
+
+
+    .checkbox {
+
+      border-color: var(--accent);
+    }
+  }
+}
+

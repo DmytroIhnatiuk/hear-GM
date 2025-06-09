@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+@@include('html/_head.htm',{ "title":"HomePage" })
+<body class="body">
+<div class="page-container">
+    @@include('html/_header.htm',{})
+    <main>
+        <section class="h-screen flex items-center">
+            <div class="container">
+                <div class="grid grid-cols-12 bg-dark-main py-48 rounded-md">
+                    <div class="col-start-2 col-span-10 md:col-start-3 md:col-span-8 text-center ">
+                        <div class="w-[.62rem] h-[.62rem] md:w-[1.11rem] bg-[#63B7B8]  flex items-center justify-center md:h-[1.11rem] rounded mx-auto mb-32">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 class="relative w-32 h-32 md:w-[.62rem] md:h-[.62rem]" viewBox="0 0 62 62" fill="none">
+                                <path d="M13.3255 36.2005L22.7253 43.2503C23.154 43.5719 23.7599 43.4983 24.0992 43.0836L46.3672 15.8672"
+                                      stroke="#1F999A" stroke-width="10" stroke-linecap="square"/>
+                            </svg>
+                        </div>
+
+                        <h1 class="h2 pb-24 border-b border-solid  border-white mb-24">
+                            Your application was <span class="text-light-main">successfully sent</span>
+                        </h1>
+                        <div class="text-l mb-32">Our managers will contact you to clarify the details</div>
+                        <a href="2" class="btn btn__gray h-[.54rem] w-full md:w-[2.95rem] mx-auto ">
+                            Go back
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    @@include('html/_footer.htm',{})
+</div>
+@@include('html/_modal.htm',{}) @@include('html/_svg.htm',{})
+@@include('html/_js.htm',{})
+</body>
+</html>

@@ -45,10 +45,15 @@ const config = {
 			extractComments: false,
 		})],
 	},
+	entry: {
+		app: `${paths.src}/js/app.js`,
+		home: `${paths.src}/js/pages/home.js`,
+
+	},
 	output: {
 		path: `${paths.build}`,
-		filename: 'app.min.js',
-		publicPath: '/',
+		filename: 'js/[name].min.js',
+		publicPath: '/'
 	},
 	module: {
 		rules: [
