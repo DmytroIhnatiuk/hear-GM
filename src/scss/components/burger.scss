@@ -1,68 +1,72 @@
 .burger {
+	align-items: center;
+	justify-content: center;
+	min-height: 0.14rem;
+	padding-left: 0;
+	padding-right: 0;
+	background-color: transparent;
+	color: inherit;
+	cursor: pointer;
+	transition: 0.3s ease;
+	z-index: 50;
+	&:focus {
+		outline: none;
+	}
 
-  align-items: center;
-  justify-content: center;
-  min-height: .14rem;
-  padding-left: 0;
-  padding-right: 0;
-  border: none;
-  background-color: transparent;
-  color: inherit;
-  cursor: pointer;
-  transition: .3s ease;
-  z-index: 4;
+	.line {
+		display: block;
+		position: relative;
+		width: 0.12rem;
+		height: 2px;
+		border-radius: 2px;
+		background-color: var(--white);
+		transition: 0.3s;
+		transform: translatex(-0.02rem);
 
-  &:focus {
-    outline: none;
-  }
+		&:before,
+		&:after {
+			content: '';
+			border-radius: 2px;
+			display: block;
+			position: absolute;
+			left: 0;
+			width: 0.16rem;
+			height: 100%;
+			background-color: var(--white);
+			transition: 0.3s;
+		}
 
+		&:before {
+			transform: translate(0, -0.05rem);
+		}
 
-  .line {
-    display: block;
-    position: relative;
-    width: .16rem;
-    height: .018rem;
-    background-color: var(--black);
-    transition: .3s;
+		&:after {
+			transform: translate(0, 0.05rem);
+			width: 0.08rem;
+		}
+	}
 
-    &:before, &:after {
-      content: "";
-      display: block;
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: var(--black);
-      transition: .3s;
-    }
+	&.active {
+		.line {
+			background-color: transparent;
+			transform: translate(0);
+			width: 0.16rem;
 
-    &:before {
-      transform: translate(0, -.06rem);
-    }
+			&:before {
+				transform: rotate(45deg);
+				background-color: var(--white);
+				width: 100%;
+			}
 
-    &:after {
-      transform: translate(0, .06rem);
-    }
-  }
+			&:after {
+				transform: rotate(-45deg);
+				background-color: var(--white);
+				width: 100%;
+			}
+		}
+	}
 
-  &.active {
-
-    .line {
-      background-color: transparent;
-
-      &:before {
-        transform: rotate(45deg);
-        background-color: var(--black);
-      }
-
-      &:after {
-        transform: rotate(-45deg);
-        background-color: var(--black);
-      }
-    }
-  }
-
-  @media all and (max-width: 600px) {
-    display: inline-flex;
-  }
+	@media all and (max-width: 600px) {
+		display: inline-flex;
+	}
 }

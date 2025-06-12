@@ -15,4 +15,38 @@
 	.label-after {
 		@apply absolute px-8 py-4 sm:px-16 sm:py-12 rounded-sm  sm:right-[.8rem] right-[.5rem] sm:top-[2.2rem] top-[.65rem] h5 z-20 h5;
 	}
+	.feature-card {
+		@apply bg-dark-gray rounded-sm px-12 py-24 flex items-start gap-8 lg:gap-16;
+	}
+
+	.feature-number {
+		@apply -rotate-90 h2 text-outline font-bold leading-none;
+	}
+	.product-card {
+		@apply bg-dark-gray p-16 rounded-md overflow-hidden box-shadow flex flex-col justify-between h-full min-h-[5.02rem] transition-transform duration-300 cursor-pointer;
+		@apply lg:hover:scale-[.98] active:scale-[.95];
+	}
+
+	.product-card:hover,
+	.product-card:active {
+		@apply inner-shadow;
+	}
+}
+@layer utilities {
+	.ellipse {
+		position: absolute;
+		border-radius: 100%;
+		background: #000;
+		-webkit-backdrop-filter: blur(10px);
+	}
+	.text-outline {
+		color: transparent;
+		-webkit-text-stroke: 1px var(--main);
+	}
+	.box-shadow {
+		box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.15);
+	}
+	.inner-shadow {
+		box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+	}
 }

@@ -26,6 +26,7 @@ module.exports = {
 			32: '.32rem',
 			42: '.42rem',
 			48: '.48rem',
+			56: '.56rem',
 		},
 		borderWidth: {
 			DEFAULT: '1px',
@@ -57,6 +58,7 @@ module.exports = {
 				DEFAULT: '50%',
 				sm: '.1rem',
 				md: '.2rem',
+				40: '.4rem',
 			},
 		},
 	},

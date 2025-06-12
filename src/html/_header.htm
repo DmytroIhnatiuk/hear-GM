@@ -1,46 +1,97 @@
 <header class="header z-50 min-w-full">
-    <div class="container h-full">
-        <div
-                class="flex justify-between items-center border-dark-gray border-solid border-b-1 min-h-full pt-16 pb-[.08rem] sm:pt-32 sm:pb-4 sm:border-none"
-        >
-            <a href="index.html">
-                <svg
-                        class="h-[.4rem] w-[1.44rem] sm:h-[.6rem] sm:w-[2.63rem] fill-main"
-                >
-                    <use class="size-full" xlink:href="#logo"></use>
-                </svg>
-            </a>
-            <div class="flex items-center">
-                <a
-                        href="tel:+380984610983"
-                        class="size-[.4rem] rounded main-color__gradient icon-phone text-white text-[.24rem] flex justify-center items-center mr-12 sm:hidden"
-                ></a>
+	<div class="container h-full">
+		<div
+			class="flex justify-between lg:justify-auto lg:gap-32 items-center min-h-full pt-16 pb-[.08rem] sm:pt-32 sm:pb-4 border-b border-solid border-white"
+		>
+			<a href="index.html">
+				<svg
+					class="h-[.4rem] w-[1.44rem] sm:h-[.71rem] sm:w-[2.2rem] fill-main"
+				>
+					<use class="size-full" xlink:href="#logo"></use>
+				</svg>
+			</a>
+			<nav
+				class="menu z-50 lg:ml-auto lg:bg-transparent lg:p-0 px-32 absolute top-0 -right-[3.5rem] min-w-[3.5rem] min-h-[100vh] bg-dark-gray flex flex-col gap-56 items-center justify-center rounded-l-md lg:static lg:min-h-max transition-transform duration-300 ease-linear"
+			>
+				<ul
+					class="flex flex-col gap-24 lg:flex-row justify-center lg:gap-32 items-center text-l lg:text-s"
+				>
+					<li
+						class="transition-link lg:hover:text-main lg:border-b lg:border-solid lg:border-transparent lg:hover:border-main"
+					>
+						<a href="#"> Детальніше</a>
+					</li>
+					<li
+						class="transition-link lg:hover:text-main lg:border-b lg:border-solid lg:border-transparent lg:hover:border-main"
+					>
+						<a href="#"> Лікарі клініки</a>
+					</li>
+					<li
+						class="transition-link lg:hover:text-main lg:border-b lg:border-solid lg:border-transparent lg:hover:border-main"
+					>
+						<a href="#"> Пересадка в Україні</a>
+					</li>
+					<li
+						class="transition-link lg:hover:text-main lg:border-b lg:border-solid lg:border-transparent lg:hover:border-main"
+					>
+						<a href="#"> Ціни</a>
+					</li>
+					<li
+						class="transition-link lg:hover:text-main lg:border-b lg:border-solid lg:border-transparent lg:hover:border-main"
+					>
+						<a href="#"> До/післе</a>
+					</li>
+					<li
+						class="transition-link lg:hover:text-main lg:border-b lg:border-solid lg:border-transparent lg:hover:border-main"
+					>
+						<a href="#"> Відгуки</a>
+					</li>
+					<li
+						class="transition-link lg:hover:text-main lg:border-b lg:border-solid lg:border-transparent lg:hover:border-main"
+					>
+						<a href="#"> Косметика G’LASSO</a>
+					</li>
+				</ul>
 
-                <div class="language-switch relative">
-                    <div class="language-switch__header uppercase">
-                        Ru
-                        <span class="icon-arrow_s"></span>
-                    </div>
-                    <div class="language-switch__content ">
-                        <ul class="language-switch__languages">
-                            <li
-                                    class="lang-item lang-item-11 lang-item-ru current-lang lang-item-first"
-                            >
-                                <a lang="ru-RU" hreflang="ru-RU" href="#">RU</a>
-                            </li>
-                            <li class="lang-item lang-item-14 lang-item-en">
-                                <a lang="en-US" hreflang="en-US" href="#">EN</a>
-                            </li>
-                            <li class="lang-item lang-item-252 lang-item-tr">
-                                <a lang="tr-TR" hreflang="tr-TR" href="#">TUR</a>
-                            </li>
-                            <li class="lang-item lang-item-284 lang-item-uk">
-                                <a lang="uk" hreflang="uk" href="#">UA</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+				<a href="tel:+380984610983" class="flex items-center sm:hidden">
+					<span
+						class="size-[.4rem] rounded main-color__gradient icon-phone text-white text-[.24rem] flex justify-center items-center mr-12"
+					></span>
+					<span class="text-l">+380984610983</span>
+				</a>
+			</nav>
+
+			<div class="flex items-center gap-8">
+				<div class="language-switch relative">
+					<div class="language-switch__header uppercase">
+						Ru
+						<span class="icon-arrow_s"></span>
+					</div>
+					<div class="language-switch__content">
+						<ul class="language-switch__languages">
+							<li
+								class="lang-item lang-item-11 lang-item-ru current-lang lang-item-first"
+							>
+								<a lang="ru-RU" hreflang="ru-RU" href="#">RU</a>
+							</li>
+							<li class="lang-item lang-item-14 lang-item-en">
+								<a lang="en-US" hreflang="en-US" href="#">EN</a>
+							</li>
+							<li class="lang-item lang-item-252 lang-item-tr">
+								<a lang="tr-TR" hreflang="tr-TR" href="#">TUR</a>
+							</li>
+							<li class="lang-item lang-item-284 lang-item-uk">
+								<a lang="uk" hreflang="uk" href="#">UA</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div
+					class="burger size-32 rounded border-2 border-solid border-white flex justify-center items-center lg:hidden z-50"
+				>
+					<span class="line"></span>
+				</div>
+			</div>
+		</div>
+	</div>
 </header>
