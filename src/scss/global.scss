@@ -298,3 +298,10 @@
     margin-bottom: .16rem;
   }
 }
+[data-swiper="promo-slider"]{
+  .image{
+    img{
+      transition: opacity .3s linear;
+    }
+  }
+}

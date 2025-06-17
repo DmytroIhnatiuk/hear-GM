@@ -4,6 +4,7 @@ get_header();
 ?>
 <main>
     <!-- promo -->
+
     <section class="pt-0 pb-32 lg:pb-0">
         <div class="container px-0">
             <div class="flex lg:flex-row flex-col-reverse min-w-0">
@@ -69,6 +70,35 @@ get_header();
             </div>
         </div>
     </section>
+    <?php if (pll_current_language() === 'ua' && current_user_can('administrator')): ?>
+        <section class="section__bg lg:-translate-y-20 lg:relative lg:z-40">
+            <div class="container">
+                <div
+                        class="border border-solid border-dark-main px-32 lg:rounded-40 rounded-md lg:pt-[.9rem] lg:pb-[1.58rem] lg:px-[1rem] pb-56 pt-32"
+                >
+                    <h2 class="mb-24">
+                        Пересадка волосся <span class="text-main"> в Києві</span>
+                    </h2>
+                    <div
+                            class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-24"
+                    >
+                        <div class="lg:col-start-2 h5">
+                            Немає можливості виїзду за кордон? <br>
+                            Приходь до нашої клініки в
+                            Києві
+                        </div>
+                        <a
+                                href="hear-gm-kyiv.html"
+                                class="btn btn__main-color max-w-[2.6rem] lg:ml-24 h-[.54rem] self-end"
+                        >
+                            Детальніше
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <?php endif;?>
+
     <!-- About us -->
     <section class="section__bg lg:-translate-y-20 lg:relative lg:z-40 lg:pb-[1.3rem]">
         <div class="container">
