@@ -219,7 +219,7 @@ get_header();
                     </div>
 
                     <div class="swiper-slide">
-                        <a href="#" class="product-card">
+                        <a href="https://g-lasso.com/" target="_blank"  class="product-card">
                             <div class="w-full h-[2.8rem] relative mb-14">
 										<span
                                                 class="ellipse w-[1.4rem] h-[1.86rem] blur-[.7rem] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
@@ -249,7 +249,7 @@ get_header();
                     </div>
 
                     <div class="swiper-slide">
-                        <a href="#" class="product-card">
+                        <a href="https://g-lasso.com/" target="_blank"  class="product-card">
                             <div class="w-full h-[2.8rem] relative mb-14">
 										<span
                                                 class="ellipse w-[1.4rem] h-[1.86rem] blur-[.7rem] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
@@ -279,7 +279,7 @@ get_header();
                     </div>
 
                     <div class="swiper-slide">
-                        <a href="#" class="product-card">
+                        <a href="https://g-lasso.com/" target="_blank"  class="product-card">
                             <div class="w-full h-[2.8rem] relative mb-14">
 										<span
                                                 class="ellipse w-[1.4rem] h-[1.86rem] blur-[.7rem] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
@@ -320,7 +320,7 @@ get_header();
                 </div>
             </div>
 
-            <a href="#" class="btn btn__main-color h-[.54rem] w-[2.64rem] mx-auto"
+            <a href="https://g-lasso.com/" target="_blank" class="btn btn__main-color h-[.54rem] w-[2.64rem] mx-auto"
             >В магазин</a
             >
         </section>
@@ -926,8 +926,8 @@ get_header();
                                         <?= dn_get_image_attachment(get_post_thumbnail_id($doctor->ID), 'doctor_prev', $doctor->title, "w-full") ?>
                                     </div>
                                     <div class="w-full h-[.73rem] gradient-youtube absolute rounded-sm bottom-0 left-0 p-8 flex-col items-center justify-center text-center blur-0">
-                                        <div class="text-20 font-bold"><?= $doctor->post_title; ?></div>
-                                        <div class="font-normal">
+                                        <div class="text-18 font-bold"><?= $doctor->post_title; ?></div>
+                                        <div class="font-normal text-s">
                                             (<?= get_the_title(get_field('transplantation-method', $doctor->ID)[0]); ?>)
                                         </div>
                                     </div>

@@ -38,6 +38,7 @@ module.exports = {
 				s: 'var(--txt-s)',
 				m: 'var(--txt-m)',
 				l: 'var(--txt-l)',
+				18: '.18rem',
 				20: '.2rem',
 				24: '.24rem',
 			},
