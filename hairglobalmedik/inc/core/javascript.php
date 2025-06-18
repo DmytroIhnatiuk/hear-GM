@@ -2,7 +2,7 @@
 if (!function_exists('gm_scripts_setup')) :
     function gm_scripts_setup()
     {
-        $release_version = '1.1.0';
+        $release_version = '1.2.0';
         wp_enqueue_script('gm-scripts', get_theme_file_uri('/assets/js/app.min.js'), array(), $release_version);
         if (is_front_page()) {
             wp_enqueue_script('homepage-scripts', get_theme_file_uri('/assets/js/home.min.js'), array(), $release_version);

@@ -160,6 +160,171 @@ get_header();
             </div>
         </div>
     </section>
+    <?php if (pll_current_language() === 'ua' && current_user_can('administrator')): ?>
+        <section>
+            <p class="text-l text-gray mb-10 mx-[var(--container-gap)]">
+                Преміальна косметика G’LASSO?
+            </p>
+
+            <div
+                    class="grid lg:grid-cols-2 gap-20 mb-24 sm:mb-42 mx-[var(--container-gap)]"
+            >
+                <h2>Догляд після пересадки волосся</h2>
+                <p class="font-normal">
+                    Преміальна косметика G’LASSO для догляду після пересадки волосся —
+                    розроблена головним лікарем клініки Hair.Globalmedik у Стамбулі і
+                    представлена ексклюзивно в Україні. Лікар займається пересадкою
+                    волосся понад 15 років, є хірургом з трансплантації волосся в
+                    Туреччині з сертифікацією члена Міжнародного товариства хірургії з
+                    пересадки волосся (ISHRS). Косметику створено спеціально для
+                    чоловіків, які пройшли процедуру трансплантації.
+                </p>
+            </div>
+
+            <div
+                    class="swiper mb-20 !px-[var(--container-gap)] !pb-20"
+                    data-swiper="storeSlider"
+            >
+                <div class="swiper-wrapper mb-32">
+                    <div class="swiper-slide">
+                        <a href="#" class="product-card">
+                            <div class="w-full h-[2.8rem] relative mb-14">
+										<span
+                                                class="ellipse w-[1.4rem] h-[1.86rem] blur-[.7rem] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
+                                        ></span>
+                                <img
+                                        class="size-full relative object-contain object-bottom z-10"
+                                        src="<?= get_img_link('store_1.webp') ?>"
+                                        alt="G’LASSO Shampoo"
+                                />
+                            </div>
+                            <h3 class="h5 font-bold mb-4 line-clamp-2">
+                                G’LASSO Hair Care Shampoo G’LASSO Hair Care Shampoo G’LASSO
+                                Hair Care Shampoo G’LASSO Hair Care Shampoo
+                            </h3>
+                            <p class="font-normal mb-16 line-clamp-3">
+                                Шампунь для щоденного догляду після трансплантації Шампунь
+                                для щоденного догляду після трансплантації
+                            </p>
+                            <div class="grid grid-cols-2 gap-16 items-center">
+                                <div class="h5 text-center text-main">35 €</div>
+                                <button
+                                        type="button"
+                                        class="btn btn__main-color h-[.46rem] w-full"
+                                >
+                                    Детальніше
+                                </button>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="#" class="product-card">
+                            <div class="w-full h-[2.8rem] relative mb-14">
+										<span
+                                                class="ellipse w-[1.4rem] h-[1.86rem] blur-[.7rem] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
+                                        ></span>
+                                <img
+                                        class="size-full relative object-contain object-bottom z-10"
+                                        src="<?= get_img_link('store_2.webp') ?>"
+                                        alt="G’LASSO Ozonized Oil"
+                                />
+                            </div>
+                            <h3 class="h5 font-bold mb-4 line-clamp-2">
+                                G’LASSO Ozonized Oil
+                            </h3>
+                            <p class="font-normal mb-16 line-clamp-3">
+                                Олія для живлення та регенерації шкіри голови
+                            </p>
+                            <div class="grid grid-cols-2 gap-16 items-center">
+                                <div class="h5 text-center text-main">35 €</div>
+                                <button
+                                        type="button"
+                                        class="btn btn__main-color h-[.46rem] w-full"
+                                >
+                                    Детальніше
+                                </button>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="#" class="product-card">
+                            <div class="w-full h-[2.8rem] relative mb-14">
+										<span
+                                                class="ellipse w-[1.4rem] h-[1.86rem] blur-[.7rem] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
+                                        ></span>
+                                <img
+                                        class="size-full relative object-contain object-bottom z-10"
+                                        src="<?= get_img_link('store_3.webp') ?>"
+                                        alt="G’LASSO Hair Vitamins"
+                                />
+                            </div>
+                            <h3 class="h5 font-bold mb-4 line-clamp-2">
+                                G’LASSO Hair Vitamins
+                            </h3>
+                            <p class="font-normal mb-16 line-clamp-3">
+                                Потужна формула проти випадіння волосся
+                            </p>
+                            <div class="grid grid-cols-2 gap-16 items-center">
+                                <div class="h5 text-center text-main">20 €</div>
+                                <button
+                                        type="button"
+                                        class="btn btn__main-color h-[.46rem] w-full"
+                                >
+                                    Детальніше
+                                </button>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="#" class="product-card">
+                            <div class="w-full h-[2.8rem] relative mb-14">
+										<span
+                                                class="ellipse w-[1.4rem] h-[1.86rem] blur-[.7rem] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
+                                        ></span>
+                                <img
+                                        class="size-full relative object-contain object-bottom z-10"
+                                        src="<?= get_img_link('store_4.webp') ?>"
+                                        alt="Набір G’LASSO"
+                                />
+                            </div>
+                            <h3 class="h5 font-bold mb-4 line-clamp-2">Набір G’LASSO</h3>
+                            <p class="font-normal mb-16 line-clamp-3">
+                                Повний цикл догляду. Ідеальний догляд протягом усього
+                                періоду відновлення
+                            </p>
+                            <div class="grid grid-cols-2 gap-16 items-center">
+                                <div class="h5 text-center text-main">225 €</div>
+                                <button
+                                        type="button"
+                                        class="btn btn__main-color h-[.46rem] w-full"
+                                >
+                                    Детальніше
+                                </button>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div
+                        class="flex justify-center items-center bottom-24 z-30 text-[.4rem] sm:text-[.53rem] leading-none gap-16 sm:gap-32"
+                >
+                    <div
+                            class="storeSlider-prev icon-arrow_l transition-link text-main lg:hover:text-white"
+                    ></div>
+                    <div
+                            class="storeSlider-next icon-arrow_l turn transition-link text-main lg:hover:text-white"
+                    ></div>
+                </div>
+            </div>
+
+            <a href="#" class="btn btn__main-color h-[.54rem] w-[2.64rem] mx-auto"
+            >В магазин</a
+            >
+        </section>
+    <?php endif;?>
     <!-- The best price  -->
     <section>
         <div class="container">
