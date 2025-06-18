@@ -39,6 +39,12 @@
 		background: #000;
 		-webkit-backdrop-filter: blur(10px);
 	}
+	.ellipse-7{
+		filter: blur(.7rem);
+	}
+	.ellipse-17{
+		filter: blur(1.7rem);
+	}
 	.text-outline {
 		color: transparent;
 		-webkit-text-stroke: 1px var(--main);

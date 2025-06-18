@@ -1,14 +1,15 @@
-<?php /* Template Name: Home page */
+<?php /* Template Name: Kyiv page */
 
 get_header();
 ?>
 <main>
     <!-- promo -->
-
-    <section class="pt-0 pb-32 lg:pb-0">
-        <div class="container px-0">
-            <div class="flex lg:flex-row flex-col-reverse min-w-0">
-                <div class="pt-20 sm:pt-42 lg:pt-0 flex flex-col justify-center px-[var(--container-gap)] lg:pr-0">
+    <section class="pt-[var(--header-height)] pb-32 lg:pb-0 lg:h-[6.4rem]">
+        <div class="container h-full">
+            <div
+                    class="flex items-center h-full lg:flex-row flex-col-reverse min-w-0"
+            >
+                <div class="pt-20 sm:pt-42 lg:pt-0 flex flex-col justify-center">
                     <div class="text-l text-gray mb-4">
                         <?= get_field('above_title'); ?>
                     </div>
@@ -17,485 +18,143 @@ get_header();
                         <?php pll_e('Online consultation'); ?>
                     </button>
                 </div>
-                <div class="pt-[var(--header-height)] relative sm:pt-0">
-                    <a href="<?= get_field('youtube_link', 'option') ?>"
-                       target="_blank"
-                       class="gradient-youtube h-[.54rem] w-[1.8rem] sm:h-[.68rem] sm:w-[2.15rem] rounded-sm py-8 px-12 sm:py-12 sm:px-16 flex items-center absolute z-40 sm:bottom-[.6rem] bottom-20 right-[var(--container-gap)] transition-link lg:hover:text-light-main">
-                        <svg class="w-[.4rem] h-[.335rem] sm:w-[.49rem] sm:h-[.42rem] mr-12">
-                            <use class="size-full" xlink:href="#youtube"></use>
-                        </svg>
-                        <div class="text-s sm:text-m  sm:font-bold blur-none">
-                            <?php pll_e('More result'); ?>
-                            <?php pll_e('on our YouTube'); ?>
+                <div class="relative">
+								<span
+                                        class="ellipse size-[2.5rem] sm:size-[4.2rem] ellipse-7 left-1/2 -translate-x-1/2 -z-10"
+                                ></span>
+                    <span
+                            class="ellipse w-[2.7rem] h-[1.6rem] sm:w-[5.4rem] sm:h-[3.2rem] ellipse-17 -right-56 -bottom-48 sm:-right-1/4 sm:-bottom-1/4 -z-10 rotate-[160deg]"
+                    ></span>
 
-                        </div>
-                    </a>
-                    <div class="lg:w-[8rem] lg:h-[6.6rem] sm:h-[5.6rem] h-[3.8rem] w-full">
+
+                    <div
+                            class="lg:w-[6.1rem] w-[100vw] px-[var(--container-gap)] lg:px-0"
+                    >
                         <div class="swiper z-10" data-swiper="promo-slider">
                             <div class="swiper-wrapper">
-                                <?php if (have_rows('homescreen_gallery')):
-                                    while (have_rows('homescreen_gallery')) : the_row(); ?>
+                                <?php    $results = get_posts(array(
+                                    'post_type' => 'result',
+                                    'lang' => pll_current_language('slug'),
+                                    'numberposts' => -1,
+                                ));
+                                foreach ($results as $result):?>
+                                    <div class="swiper-slide sm:p-32 px-4 pb-24">
+                                        <div
+                                                class="lg:h-[3.53rem] w-full sm:h-[3.52rem] h-[2.2rem] relative flex justify-center items-center"
+                                        >
+                                            <div
+                                                    class="label leading-normal absolute gradient-youtube text-s sm:text-l w-max -right-4 md:-right-32 bottom-8 md:bottom-20 px-12 py-4 rounded-sm z-40 uppercase"
+                                            >
+                                                <?= pll_e('After'); ?>
+                                            </div>
+                                            <div
+                                                    class="label leading-normal absolute gradient-youtube text-s sm:text-l w-max -left-4 md:-left-32 top-8 md:top-20 px-12 py-4 rounded-sm z-30 uppercase"
+                                            >
+                                                <?= pll_e('Before'); ?>
+                                            </div>
+
+                                            <div
+                                                    class="image w-1/2 h-full relative rounded-sm overflow-hidden"
+                                            >
+                                                <?= dn_get_image_attachment(get_field('after', $result->ID), 'result_prev', $result->title, 'size-full object-cover') ?>
+
+                                            </div>
+                                            <div
+                                                    class="image w-1/2 h-full relative rounded-sm overflow-hidden"
+                                            >
+                                                <?= dn_get_image_attachment(get_field('before', $result->ID), 'result_prev', $result->title, 'size-full object-cover') ?>
 
 
-                                        <div class="swiper-slide overflow-hidden bg-black">
-                                            <div class="promo-slide">
-                                                <div class="label-before"><?= pll_e('Before'); ?></div>
-                                                <div class="label-after"><?= pll_e('After'); ?></div>
-                                                <div class="image h-full w-full absolute right-0 top-0">
-                                                    <picture class="dn-preview-image">
-                                                        <source srcset="<?= wp_get_attachment_image_srcset(get_sub_field('desktop_image')) ?>"
-                                                                media="(min-width: 640px)"/>
-                                                        <img src="<?= wp_get_attachment_url(get_sub_field('mobile_image')) ?>"
-                                                             alt="Before/after image"
-
-                                                        />
-                                                    </picture>
-                                                </div>
                                             </div>
                                         </div>
-
-                                    <?php endwhile;
-                                endif;
+                                    </div>
+                                <?php endforeach;
                                 ?>
 
 
                             </div>
-                            <div class="flex items-center absolute bottom-24 left-[var(--container-gap)] sm:bottom-[.6rem] z-30 text-[.4rem] sm:text-[.53rem] leading-none">
-                                <div class="promo-slider-prev icon-arrow_l mr-16 sm:mr-32 transition-link lg:hover:text-main"></div>
-                                <div class="promo-slider-next icon-arrow_l turn transition-link lg:hover:text-main"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <?php if (pll_current_language() === 'ua' && current_user_can('administrator')): ?>
-        <section class="section__bg lg:-translate-y-20 lg:relative lg:z-40">
-            <div class="container">
-                <div
-                        class="border border-solid border-dark-main px-32 lg:rounded-40 rounded-md lg:pt-[.9rem] lg:pb-[1.58rem] lg:px-[1rem] pb-56 pt-32"
-                >
-                    <h2 class="mb-24">
-                        Пересадка волосся <span class="text-main"> в Києві</span>
-                    </h2>
-                    <div
-                            class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-24"
-                    >
-                        <div class="lg:col-start-2 h5">
-                            Немає можливості виїзду за кордон? <br>
-                            Приходь до нашої клініки в
-                            Києві
-                        </div>
-                        <a
-                                href="hear-gm-kyiv.html"
-                                class="btn btn__main-color max-w-[2.6rem] lg:ml-24 h-[.54rem] self-end"
-                        >
-                            Детальніше
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    <?php endif;?>
-
-    <!-- About us -->
-    <section class="section__bg lg:-translate-y-20 lg:relative lg:z-40 lg:pb-[1.3rem]">
-        <div class="container">
-            <div class="text-l text-gray mb-4 sm:mb-8 font-bold sm:font-semibold">
-                <?= pll_e('About us'); ?>
-            </div>
-            <h2 class="mb-32 sm:mb-48"><?= pll_e('Hair Globalmedik clinic'); ?></h2>
-            <div class="flex-col flex lg:flex-row mb-24 sm:mb-48">
-                <div class="image relative w-full h-[2.25rem] sm:h-[4rem] lg:min-w-[6.1rem] lg:w-[6.1rem] rounded-sm sm:rounded-md overflow-hidden lg:mr-[.94rem] mb-16 sm:mb-24 lg:mb-0">
-                    <?= dn_get_image_attachment(get_field('about_main_image'), 'about_prev', 'section image') ?>
-                </div>
-                <div>
-                    <div class="flex mb-16 sm:mb-42">
-                        <div class="flex items-center px-12 py-8 sm:p-12 border border-solid border-dark-main rounded-sm sm:rounded-md mr-8">
-                            <div class="text-[.28rem] leading-normal sm:text-[.48rem] text-accent mr-6">
-                                <?= get_field('satisfied_patient'); ?>
-                            </div>
-                            <div class="text-s sm:text-l h-max"><?= pll_e('Satisfied patient'); ?></div>
-                        </div>
-                        <div class="flex items-center px-12 py-8 sm:p-12 border border-solid border-dark-main rounded-sm sm:rounded-md">
-                            <div class="text-[.28rem] leading-normal sm:text-[.48rem] text-accent mr-6">
-                                <?= get_field('years_of_experience'); ?>
-                            </div>
-                            <div class="text-s sm:text-l h-max">
-                                <?= pll_e('Years of Experience'); ?>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="h5 mb-12 sm:mb-24">
-                        <?= get_field('about_title'); ?>
-                    </div>
-                    <p class="font-normal sm:font-semibold text-light-gray">
-                        <?= get_field('description_1'); ?>
-                    </p>
-                </div>
-            </div>
-            <div class="lg:flex lg:flex-row-reverse items-center">
-                <div class="flex mb-24 lg:mb-0">
-                    <div class="image relative rounded-md overflow-hidden w-[1.66rem] sm:w-[2.41rem] h-[1.58rem] sm:h-[2.3rem] mr-12 sm:mr-20">
-                        <?= dn_get_image_attachment(get_field('about_image_1'), 'about_prev_small', 'section image') ?>
-
-                    </div>
-                    <div class="image relative rounded-md overflow-hidden w-[1.66rem] sm:w-[2.41rem] h-[1.58rem] sm:h-[2.3rem]">
-                        <?= dn_get_image_attachment(get_field('about_image_2'), 'about_prev_small', 'section image') ?>
-
-                    </div>
-                </div>
-                <div class="lg:mr-[1.32rem] leading-normal text-light-gray">
-                    <p>
-                        <?= get_field('description_2'); ?>
-                    </p>
-                    <p class="mb-24 sm:mb-32">
-                        <?= get_field('description_3'); ?>
-                    </p>
-                    <button data-target="callback" class="btn btn__main-color h-[.54rem] min-w-[2.63rem]">
-                        <?= pll_e('Contact us for consultation'); ?>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-    <?php if (pll_current_language() === 'ua' && current_user_can('administrator')): ?>
-        <section>
-            <p class="text-l text-gray mb-10 mx-[var(--container-gap)]">
-                Преміальна косметика G’LASSO?
-            </p>
-
-            <div
-                    class="grid lg:grid-cols-2 gap-20 mb-24 sm:mb-42 mx-[var(--container-gap)]"
-            >
-                <h2>Догляд після пересадки волосся</h2>
-                <p class="font-normal">
-                    Преміальна косметика G’LASSO для догляду після пересадки волосся —
-                    розроблена головним лікарем клініки Hair.Globalmedik у Стамбулі і
-                    представлена ексклюзивно в Україні. Лікар займається пересадкою
-                    волосся понад 15 років, є хірургом з трансплантації волосся в
-                    Туреччині з сертифікацією члена Міжнародного товариства хірургії з
-                    пересадки волосся (ISHRS). Косметику створено спеціально для
-                    чоловіків, які пройшли процедуру трансплантації.
-                </p>
-            </div>
-
-            <div
-                    class="swiper mb-20 !px-[var(--container-gap)] !pb-20"
-                    data-swiper="storeSlider"
-            >
-                <div
-                        class="flex mb-32 justify-end items-center bottom-24 z-30 text-[.4rem] sm:text-[.53rem] leading-none gap-16 sm:gap-32"
-                >
-                    <div
-                            class="storeSlider-prev icon-arrow_l transition-link text-main lg:hover:text-white"
-                    ></div>
-                    <div
-                            class="storeSlider-next icon-arrow_l turn transition-link text-main lg:hover:text-white"
-                    ></div>
-                </div>
-                <div class="swiper-wrapper ">
-                    <div class="swiper-slide">
-                        <a href="https://g-lasso.com/" target="_blank" class="product-card">
-                            <div class="w-full h-[2.8rem] relative mb-14">
-										<span
-                                                class="ellipse w-[1.4rem] h-[1.86rem] ellipse-7 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
-                                        ></span>
-                                <img
-                                        class="size-full relative object-contain object-bottom z-10"
-                                        src="<?= get_img_link('store_1.webp') ?>"
-                                        alt="G’LASSO Shampoo"
-                                />
-                            </div>
-                            <h3 class="h5 font-bold mb-4 line-clamp-2">
-                                G’LASSO Hair Care Shampoo G’LASSO Hair Care Shampoo G’LASSO
-                                Hair Care Shampoo G’LASSO Hair Care Shampoo
-                            </h3>
-                            <p class="font-normal mb-16 line-clamp-3">
-                                Шампунь для щоденного догляду після трансплантації Шампунь
-                                для щоденного догляду після трансплантації
-                            </p>
-                            <div class="grid grid-cols-2 gap-16 items-center">
-                                <div class="h5 text-center text-main">35 €</div>
-                                <button
-                                        type="button"
-                                        class="btn btn__main-color h-[.46rem] w-full"
-                                >
-                                    Детальніше
-                                </button>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <a href="https://g-lasso.com/" target="_blank"  class="product-card">
-                            <div class="w-full h-[2.8rem] relative mb-14">
-										<span
-                                                class="ellipse w-[1.4rem] h-[1.86rem] ellipse-7 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
-                                        ></span>
-                                <img
-                                        class="size-full relative object-contain object-bottom z-10"
-                                        src="<?= get_img_link('store_2.webp') ?>"
-                                        alt="G’LASSO Ozonized Oil"
-                                />
-                            </div>
-                            <h3 class="h5 font-bold mb-4 line-clamp-2">
-                                G’LASSO Ozonized Oil
-                            </h3>
-                            <p class="font-normal mb-16 line-clamp-3">
-                                Олія для живлення та регенерації шкіри голови
-                            </p>
-                            <div class="grid grid-cols-2 gap-16 items-center">
-                                <div class="h5 text-center text-main">35 €</div>
-                                <button
-                                        type="button"
-                                        class="btn btn__main-color h-[.46rem] w-full"
-                                >
-                                    Детальніше
-                                </button>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <a href="https://g-lasso.com/" target="_blank"  class="product-card">
-                            <div class="w-full h-[2.8rem] relative mb-14">
-										<span
-                                                class="ellipse w-[1.4rem] h-[1.86rem] ellipse-7 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
-                                        ></span>
-                                <img
-                                        class="size-full relative object-contain object-bottom z-10"
-                                        src="<?= get_img_link('store_3.webp') ?>"
-                                        alt="G’LASSO Hair Vitamins"
-                                />
-                            </div>
-                            <h3 class="h5 font-bold mb-4 line-clamp-2">
-                                G’LASSO Hair Vitamins
-                            </h3>
-                            <p class="font-normal mb-16 line-clamp-3">
-                                Потужна формула проти випадіння волосся
-                            </p>
-                            <div class="grid grid-cols-2 gap-16 items-center">
-                                <div class="h5 text-center text-main">20 €</div>
-                                <button
-                                        type="button"
-                                        class="btn btn__main-color h-[.46rem] w-full"
-                                >
-                                    Детальніше
-                                </button>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <a href="https://g-lasso.com/" target="_blank"  class="product-card">
-                            <div class="w-full h-[2.8rem] relative mb-14">
-										<span
-                                                class="ellipse w-[1.4rem] h-[1.86rem] ellipse-7 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
-                                        ></span>
-                                <img
-                                        class="size-full relative object-contain object-bottom z-10"
-                                        src="<?= get_img_link('store_4.webp') ?>"
-                                        alt="Набір G’LASSO"
-                                />
-                            </div>
-                            <h3 class="h5 font-bold mb-4 line-clamp-2">Набір G’LASSO</h3>
-                            <p class="font-normal mb-16 line-clamp-3">
-                                Повний цикл догляду. Ідеальний догляд протягом усього
-                                періоду відновлення
-                            </p>
-                            <div class="grid grid-cols-2 gap-16 items-center">
-                                <div class="h5 text-center text-main">225 €</div>
-                                <button
-                                        type="button"
-                                        class="btn btn__main-color h-[.46rem] w-full"
-                                >
-                                    Детальніше
-                                </button>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-
-            </div>
-
-            <a href="https://g-lasso.com/" target="_blank" class="btn btn__main-color h-[.54rem] w-[2.64rem] mx-auto"
-            >В магазин</a
-            >
-        </section>
-    <?php endif;?>
-    <!-- The best price  -->
-    <section>
-        <div class="container">
-            <div class="text-l text-gray mb-4 sm:mb-8 font-bold sm:font-semibold">
-                <?= pll_e('The best price'); ?>
-            </div>
-            <h2 class="mb-32 sm:mb-48">
-                <?= pll_e('All Inclusive Hair Transplantation Package'); ?>
-            </h2>
-            <div class="grid lg:grid-cols-3 gap-20">
-                <?php
-                $packages = get_posts(array(
-                    'post_type' => 'hair-transplantation',
-                    'numberposts' => -1,
-                ));
-                foreach ($packages
-
-                         as $package) {
-                    $packageID = $package->ID;
-                    ?>
-                    <div
-                            data-options
-                            class=" bg-dark-gray p-16 sm:p-24 rounded-md overflow-hidden flex flex-col justify-between h-full"
-                    >
-                        <div class="mb-12 lg:mb-24">
-                            <div class="flex justify-between items-center mb-8">
-                                <h3 class="h-gradient ">
-                                    <?= get_the_title($packageID) ?>
-                                </h3>
-                                <div
-                                        class="bg-accent h5 px-12 py-4 rounded-sm min-w-max ml-4"
-                                >
-                                    <?= get_field('price', $packageID); ?>
-                                </div>
-                            </div>
-                            <div class="font-bold mb-8"><?= pll_e('The price includes:'); ?></div>
-                            <ul class="text-s text-light-gray ">
-                                <?php if (have_rows('price_includes', $packageID)):
-                                    while (have_rows('price_includes', $packageID)) : the_row(); ?>
-
-
-                                        <li class="flex items-center mb-8">
-                                            <span class="icon-done text-main text-m mr-12"></span>
-                                            <div><?= get_sub_field('item'); ?></div>
-                                        </li>
-
-                                    <?php endwhile;
-                                endif;
-                                ?>
-
-
-                            </ul>
-                        </div>
-                        <button
-                                class="option-btn relative w-[.66rem] text-main mx-auto sm:hidden text-s font-normal flex justify-between items-center mb-14"
-                        >
-                            <span><?= pll_e('More'); ?></span>
-                            <span
-                                    class="icon-arrow_s absolute right-0 transition-transform block text-20  -rotate-90"
-                            ></span>
-                        </button>
-
-                        <button data-target="callback" class="btn btn__main-color w-full h-[.46rem]">
-                            <?= pll_e('Contact us for consultation'); ?>
-                        </button>
-                    </div>
-                <?php } ?>
-            </div>
-        </div>
-    </section>
-    <!-- Instagram -->
-    <section>
-        <div class="container overflow-hidden">
-            <div class="rounded-md bg-dark-main p-32 pb-0 pt-[.4rem] sm:py-32 sm:px-[.9rem] flex flex-col lg:flex-row items-center min-h-[5.38rem] sm:min-h-max">
-                <div class="lg:mr-[1rem] mb-20 lg:mb-0">
-                    <h2 class="mb-16 sm:mb-32 leading-normal">
-                        <?= pll_e('More results and info in'); ?>
-                        <span class="text-light-main block"> <?= pll_e('our Instagram'); ?> </span>
-                    </h2>
-
-                    <a href="<?= pll_current_language() !== 'en' ? get_field('instagram_link', 'option') : 'https://www.instagram.com/turkey.hairglobalmedik?igsh=YWNoNW82aG14N29i' ?>"
-                       target="_blank"
-                       class="btn btn__outline w-[1.83rem]">
-                        Instagram
-                        <svg class="size-32 ml-8">
-                            <use class="size-full" xlink:href="#instagram"></use>
-                        </svg>
-                    </a>
-                </div>
-                <div class="flex w-full sm:min-w-[4.14rem] sm:w-[4.14rem] justify-center min-h-[2.4rem] relative">
-                    <div class="-left-8 -bottom-[.65rem] absolute sm:static">
-                        <div class="image relative rounded-sm overflow-hidden w-[1.44rem] h-[2.78rem] sm:w-[1.76rem] sm:h-[3.5rem] sm:mr-32">
-                            <?= dn_get_image_attachment(get_field('instagram_image_1')) ?>
-                        </div>
-                    </div>
-
-                    <div class="-right-8 -bottom-32 absolute sm:static">
-                        <div class="image relative rounded-sm overflow-hidden w-[1.44rem] h-[2.78rem] sm:w-[1.76rem] sm:h-[3.5rem]">
-                            <?= dn_get_image_attachment(get_field('instagram_image_2')) ?>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Before & After -->
-    <section class="before-after relative">
-        <div class="p-0 sm:px-[var(--container-gap)]">
-            <div class="px-[var(--container-gap)] sm:px-0">
-                <div class="text-l text-gray mb-4 sm:mb-8 font-bold sm:font-semibold">
-                    <?= pll_e('Our clients results'); ?>
-                </div>
-                <h2 class="mb-32 sm:mb-48"><?= pll_e('Before & After'); ?></h2>
-            </div>
-            <div class="image size-[3rem] sm:size-[4.2rem] absolute top-1/2 right-1/2 translate-x-[50%] translate-y-[-50%]">
-
-
-                <img class="size-full" src="<?= get_img_link('ellipse.png') ?>" alt="Ellipse"/>
-            </div>
-            <div class="swiper w-[3.5rem] sm:h-[4.3rem] sm:w-[5.8rem] mx-auto" data-swiper="beforeAfter">
-                <div class="swiper-wrapper">
-                    <?php
-
-                    $results = get_posts(array(
-                        'post_type' => 'result',
-                        'lang' => pll_current_language('slug'),
-                        'numberposts' => -1,
-                    ));
-                    foreach ($results as $result):?>
-                        <div class="swiper-slide">
                             <div
-                                    class="w-[3.53rem] h-[2.22rem] sm:w-[5.46rem] sm:h-[3.52rem] relative flex justify-center items-center"
+                                    class="flex justify-center items-center bottom-24 z-30 text-[.4rem] sm:text-[.53rem] leading-none gap-16 sm:gap-32"
                             >
                                 <div
-                                        class="label leading-normal absolute gradient-youtube text-s sm:text-l w-max -right-4 md:-right-32 bottom-8 md:bottom-20  px-12 py-4 rounded-sm z-30 opacity-0"
-                                >
-                                    <?= pll_e('After'); ?>
-                                </div>
+                                        class="promo-slider-prev icon-arrow_l transition-link text-main lg:hover:text-white"
+                                ></div>
                                 <div
-                                        class="label leading-normal absolute gradient-youtube text-s sm:text-l w-max -left-4 md:-left-32 top-8 md:top-20 px-12 py-4 rounded-sm z-30 opacity-0"
-                                >
-                                    <?= pll_e('Before'); ?>
-                                </div>
-
-                                <div
-                                        class="image   w-1/2 h-full relative  rounded-sm overflow-hidden "
-                                >
-                                    <?= dn_get_image_attachment(get_field('before', $result->ID), 'result_prev', $result->title, 'size-full') ?>
-                                </div>
-                                <div
-                                        class="image  w-1/2 h-full relative rounded-sm overflow-hidden"
-                                >
-                                    <?= dn_get_image_attachment(get_field('after', $result->ID), 'result_prev', $result->title, 'size-full') ?>
-
-                                </div>
+                                        class="promo-slider-next icon-arrow_l turn transition-link text-main lg:hover:text-white"
+                                ></div>
                             </div>
                         </div>
-                    <?php endforeach;
-                    ?>
-
-                </div>
-                <div class="flex mx-auto mt-16 lg:mt-0 w-max items-center bottom-0 text-[.4rem] leading-none">
-                    <div class="beforeAfter-prev icon-arrow_l mr-16 md:mr-32 transition-link lg:hover:text-main"></div>
-                    <div class="beforeAfter-next icon-arrow_l turn transition-link lg:hover:text-main"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    <section>
+        <div class="container">
+            <span class="text-l text-gray mb-8">Чому варто обрати нас?</span>
 
+            <h2 class="mb-32 sm:mb-42 text-center sm:text-left lg:max-w-[90%]">
+                Наша клініка займається винятково трансплантацією волосся і ми
+                знаємо про це все!
+            </h2>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-20">
+                <div class="feature-card">
+                    <div class="feature-number">01</div>
+                    <div>
+                        <h3 class="h5 font-bold mb-8">Сучасні методи пересадки</h3>
+                        <p class="font-normal">FUE Sapphire та DHI</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-number">02</div>
+                    <h3 class="h5 font-bold">
+                        Сертифікація Міністерства охорони здоровʼя Туреччини
+                    </h3>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-number">03</div>
+                    <div>
+                        <h3 class="h5 font-bold mb-8">Гарантія та супровід</h3>
+                        <p class="font-normal">
+                            сертифікат та 12 місяців підтримки після процедури
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-number">04</div>
+                    <div>
+                        <h3 class="h5 font-bold mb-8">Естетичний результат</h3>
+                        <p class="font-normal">
+                            висока щільність посадки з дбайливим ставленням до
+                            донорської зони
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-number">05</div>
+                    <div>
+                        <h3 class="h5 font-bold mb-8">Лікарі з досвідом 10+ років</h3>
+                        <p class="font-normal">
+                            які працюють з пацієнтами з усього світу
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-number">06</div>
+                    <div>
+                        <h3 class="h5 font-bold mb-8">Безпечні умови</h3>
+                        <p class="font-normal">та найвищі стандарти стерильності</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="test ">
         <div class="container">
             <div class="test__wrapper px-32  md:px-24 py-32 lg:px-[.8rem] lg:py-[.66rem] rounded-md bg-dark-main relative">
@@ -884,6 +543,269 @@ get_header();
             </div>
         </div>
     </section>
+    <!-- Before & After -->
+    <section class="before-after relative">
+        <div class="p-0 sm:px-[var(--container-gap)]">
+            <div class="px-[var(--container-gap)] sm:px-0">
+                <div class="text-l text-gray mb-4 sm:mb-8 font-bold sm:font-semibold">
+                    <?= pll_e('Our clients results'); ?>
+                </div>
+                <h2 class="mb-32 sm:mb-48"><?= pll_e('Before & After'); ?></h2>
+            </div>
+            <div class="image size-[3rem] sm:size-[4.2rem] absolute top-1/2 right-1/2 translate-x-[50%] translate-y-[-50%]">
+
+
+                <img class="size-full" src="<?= get_img_link('ellipse.png') ?>" alt="Ellipse"/>
+            </div>
+            <div class="swiper w-[3.5rem] sm:h-[4.3rem] sm:w-[5.8rem] mx-auto" data-swiper="beforeAfter">
+                <div class="swiper-wrapper">
+                    <?php
+
+                    $results = get_posts(array(
+                        'post_type' => 'result',
+                        'lang' => pll_current_language('slug'),
+                        'numberposts' => -1,
+                    ));
+                    foreach ($results as $result):?>
+                        <div class="swiper-slide">
+                            <div
+                                    class="w-[3.53rem] h-[2.22rem] sm:w-[5.46rem] sm:h-[3.52rem] relative flex justify-center items-center"
+                            >
+                                <div
+                                        class="label leading-normal absolute gradient-youtube text-s sm:text-l w-max -right-4 md:-right-32 bottom-8 md:bottom-20  px-12 py-4 rounded-sm z-30 opacity-0"
+                                >
+                                    <?= pll_e('After'); ?>
+                                </div>
+                                <div
+                                        class="label leading-normal absolute gradient-youtube text-s sm:text-l w-max -left-4 md:-left-32 top-8 md:top-20 px-12 py-4 rounded-sm z-30 opacity-0"
+                                >
+                                    <?= pll_e('Before'); ?>
+                                </div>
+
+                                <div
+                                        class="image   w-1/2 h-full relative  rounded-sm overflow-hidden "
+                                >
+                                    <?= dn_get_image_attachment(get_field('before', $result->ID), 'result_prev', $result->title, 'size-full') ?>
+                                </div>
+                                <div
+                                        class="image  w-1/2 h-full relative rounded-sm overflow-hidden"
+                                >
+                                    <?= dn_get_image_attachment(get_field('after', $result->ID), 'result_prev', $result->title, 'size-full') ?>
+
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach;
+                    ?>
+
+                </div>
+                <div class="flex mx-auto mt-16 lg:mt-0 w-max items-center bottom-0 text-[.4rem] leading-none">
+                    <div class="beforeAfter-prev icon-arrow_l mr-16 md:mr-32 transition-link lg:hover:text-main"></div>
+                    <div class="beforeAfter-next icon-arrow_l turn transition-link lg:hover:text-main"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Instagram -->
+    <section>
+        <div class="container overflow-hidden">
+            <div class="rounded-md bg-dark-main p-32 pb-0 pt-[.4rem] sm:py-32 sm:px-[.9rem] flex flex-col lg:flex-row items-center min-h-[5.38rem] sm:min-h-max">
+                <div class="lg:mr-[1rem] mb-20 lg:mb-0">
+                    <h2 class="mb-16 sm:mb-32 leading-normal">
+                        <?= pll_e('More results and info in'); ?>
+                        <span class="text-light-main block"> <?= pll_e('our Instagram'); ?> </span>
+                    </h2>
+
+                    <a href="<?= pll_current_language() !== 'en' ? get_field('instagram_link', 'option') : 'https://www.instagram.com/turkey.hairglobalmedik?igsh=YWNoNW82aG14N29i' ?>"
+                       target="_blank"
+                       class="btn btn__outline w-[1.83rem]">
+                        Instagram
+                        <svg class="size-32 ml-8">
+                            <use class="size-full" xlink:href="#instagram"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="flex w-full sm:min-w-[4.14rem] sm:w-[4.14rem] justify-center min-h-[2.4rem] relative">
+                    <div class="-left-8 -bottom-[.65rem] absolute sm:static">
+                        <div class="image relative rounded-sm overflow-hidden w-[1.44rem] h-[2.78rem] sm:w-[1.76rem] sm:h-[3.5rem] sm:mr-32">
+                            <?= dn_get_image_attachment(get_field('instagram_image_1')) ?>
+                        </div>
+                    </div>
+
+                    <div class="-right-8 -bottom-32 absolute sm:static">
+                        <div class="image relative rounded-sm overflow-hidden w-[1.44rem] h-[2.78rem] sm:w-[1.76rem] sm:h-[3.5rem]">
+                            <?= dn_get_image_attachment(get_field('instagram_image_2')) ?>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <section>
+            <p class="text-l text-gray mb-10 mx-[var(--container-gap)]">
+                Преміальна косметика G’LASSO?
+            </p>
+
+            <div
+                    class="grid lg:grid-cols-2 gap-20 mb-24 sm:mb-42 mx-[var(--container-gap)]"
+            >
+                <h2>Догляд після пересадки волосся</h2>
+                <p class="font-normal">
+                    Преміальна косметика G’LASSO для догляду після пересадки волосся —
+                    розроблена головним лікарем клініки Hair.Globalmedik у Стамбулі і
+                    представлена ексклюзивно в Україні. Лікар займається пересадкою
+                    волосся понад 15 років, є хірургом з трансплантації волосся в
+                    Туреччині з сертифікацією члена Міжнародного товариства хірургії з
+                    пересадки волосся (ISHRS). Косметику створено спеціально для
+                    чоловіків, які пройшли процедуру трансплантації.
+                </p>
+            </div>
+
+            <div
+                    class="swiper mb-20 !px-[var(--container-gap)] !pb-20"
+                    data-swiper="storeSlider"
+            >
+                <div
+                        class="flex mb-32 justify-end items-center bottom-24 z-30 text-[.4rem] sm:text-[.53rem] leading-none gap-16 sm:gap-32"
+                >
+                    <div
+                            class="storeSlider-prev icon-arrow_l transition-link text-main lg:hover:text-white"
+                    ></div>
+                    <div
+                            class="storeSlider-next icon-arrow_l turn transition-link text-main lg:hover:text-white"
+                    ></div>
+                </div>
+                <div class="swiper-wrapper ">
+                    <div class="swiper-slide">
+                        <a href="https://g-lasso.com/" target="_blank" class="product-card">
+                            <div class="w-full h-[2.8rem] relative mb-14">
+										<span
+                                                class="ellipse w-[1.4rem] h-[1.86rem] ellipse-7 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
+                                        ></span>
+                                <img
+                                        class="size-full relative object-contain object-bottom z-10"
+                                        src="<?= get_img_link('store_1.webp') ?>"
+                                        alt="G’LASSO Shampoo"
+                                />
+                            </div>
+                            <h3 class="h5 font-bold mb-4 line-clamp-2">
+                                G’LASSO Hair Care Shampoo G’LASSO Hair Care Shampoo G’LASSO
+                                Hair Care Shampoo G’LASSO Hair Care Shampoo
+                            </h3>
+                            <p class="font-normal mb-16 line-clamp-3">
+                                Шампунь для щоденного догляду після трансплантації Шампунь
+                                для щоденного догляду після трансплантації
+                            </p>
+                            <div class="grid grid-cols-2 gap-16 items-center">
+                                <div class="h5 text-center text-main">35 €</div>
+                                <button
+                                        type="button"
+                                        class="btn btn__main-color h-[.46rem] w-full"
+                                >
+                                    Детальніше
+                                </button>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="https://g-lasso.com/" target="_blank" class="product-card">
+                            <div class="w-full h-[2.8rem] relative mb-14">
+										<span
+                                                class="ellipse w-[1.4rem] h-[1.86rem] ellipse-7 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
+                                        ></span>
+                                <img
+                                        class="size-full relative object-contain object-bottom z-10"
+                                        src="<?= get_img_link('store_2.webp') ?>"
+                                        alt="G’LASSO Ozonized Oil"
+                                />
+                            </div>
+                            <h3 class="h5 font-bold mb-4 line-clamp-2">
+                                G’LASSO Ozonized Oil
+                            </h3>
+                            <p class="font-normal mb-16 line-clamp-3">
+                                Олія для живлення та регенерації шкіри голови
+                            </p>
+                            <div class="grid grid-cols-2 gap-16 items-center">
+                                <div class="h5 text-center text-main">35 €</div>
+                                <button
+                                        type="button"
+                                        class="btn btn__main-color h-[.46rem] w-full"
+                                >
+                                    Детальніше
+                                </button>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="https://g-lasso.com/" target="_blank" class="product-card">
+                            <div class="w-full h-[2.8rem] relative mb-14">
+										<span
+                                                class="ellipse w-[1.4rem] h-[1.86rem] ellipse-7 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
+                                        ></span>
+                                <img
+                                        class="size-full relative object-contain object-bottom z-10"
+                                        src="<?= get_img_link('store_3.webp') ?>"
+                                        alt="G’LASSO Hair Vitamins"
+                                />
+                            </div>
+                            <h3 class="h5 font-bold mb-4 line-clamp-2">
+                                G’LASSO Hair Vitamins
+                            </h3>
+                            <p class="font-normal mb-16 line-clamp-3">
+                                Потужна формула проти випадіння волосся
+                            </p>
+                            <div class="grid grid-cols-2 gap-16 items-center">
+                                <div class="h5 text-center text-main">20 €</div>
+                                <button
+                                        type="button"
+                                        class="btn btn__main-color h-[.46rem] w-full"
+                                >
+                                    Детальніше
+                                </button>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="https://g-lasso.com/" target="_blank" class="product-card">
+                            <div class="w-full h-[2.8rem] relative mb-14">
+										<span
+                                                class="ellipse w-[1.4rem] h-[1.86rem] ellipse-7 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
+                                        ></span>
+                                <img
+                                        class="size-full relative object-contain object-bottom z-10"
+                                        src="<?= get_img_link('store_4.webp') ?>"
+                                        alt="Набір G’LASSO"
+                                />
+                            </div>
+                            <h3 class="h5 font-bold mb-4 line-clamp-2">Набір G’LASSO</h3>
+                            <p class="font-normal mb-16 line-clamp-3">
+                                Повний цикл догляду. Ідеальний догляд протягом усього
+                                періоду відновлення
+                            </p>
+                            <div class="grid grid-cols-2 gap-16 items-center">
+                                <div class="h5 text-center text-main">225 €</div>
+                                <button
+                                        type="button"
+                                        class="btn btn__main-color h-[.46rem] w-full"
+                                >
+                                    Детальніше
+                                </button>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <a href="https://g-lasso.com/" target="_blank" class="btn btn__main-color h-[.54rem] w-[2.64rem] mx-auto"
+            >В магазин</a
+            >
+        </section>
     <!-- Our doctors -->
     <section>
         <div class="container p-0 lg:px-[var(--container-gap)]">
@@ -947,6 +869,143 @@ get_header();
             </div>
         </div>
     </section>
+    <!-- About us -->
+    <section class="section__bg lg:-translate-y-20 lg:relative lg:z-40 lg:pb-[1.3rem]">
+        <div class="container">
+            <div class="text-l text-gray mb-4 sm:mb-8 font-bold sm:font-semibold">
+                <?= pll_e('About us'); ?>
+            </div>
+            <h2 class="mb-32 sm:mb-48"><?= pll_e('Hair Globalmedik clinic'); ?></h2>
+            <div class="flex-col flex lg:flex-row mb-24 sm:mb-48">
+                <div class="image relative w-full h-[2.25rem] sm:h-[4rem] lg:min-w-[6.1rem] lg:w-[6.1rem] rounded-sm sm:rounded-md overflow-hidden lg:mr-[.94rem] mb-16 sm:mb-24 lg:mb-0">
+                    <?= dn_get_image_attachment(get_field('about_main_image'), 'about_prev', 'section image') ?>
+                </div>
+                <div>
+                    <div class="flex mb-16 sm:mb-42">
+                        <div class="flex items-center px-12 py-8 sm:p-12 border border-solid border-dark-main rounded-sm sm:rounded-md mr-8">
+                            <div class="text-[.28rem] leading-normal sm:text-[.48rem] text-accent mr-6">
+                                <?= get_field('satisfied_patient'); ?>
+                            </div>
+                            <div class="text-s sm:text-l h-max"><?= pll_e('Satisfied patient'); ?></div>
+                        </div>
+                        <div class="flex items-center px-12 py-8 sm:p-12 border border-solid border-dark-main rounded-sm sm:rounded-md">
+                            <div class="text-[.28rem] leading-normal sm:text-[.48rem] text-accent mr-6">
+                                <?= get_field('years_of_experience'); ?>
+                            </div>
+                            <div class="text-s sm:text-l h-max">
+                                <?= pll_e('Years of Experience'); ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h5 mb-12 sm:mb-24">
+                        <?= get_field('about_title'); ?>
+                    </div>
+                    <p class="font-normal sm:font-semibold text-light-gray">
+                        <?= get_field('description_1'); ?>
+                    </p>
+                </div>
+            </div>
+            <div class="lg:flex lg:flex-row-reverse items-center">
+                <div class="flex mb-24 lg:mb-0">
+                    <div class="image relative rounded-md overflow-hidden w-[1.66rem] sm:w-[2.41rem] h-[1.58rem] sm:h-[2.3rem] mr-12 sm:mr-20">
+                        <?= dn_get_image_attachment(get_field('about_image_1'), 'about_prev_small', 'section image') ?>
+
+                    </div>
+                    <div class="image relative rounded-md overflow-hidden w-[1.66rem] sm:w-[2.41rem] h-[1.58rem] sm:h-[2.3rem]">
+                        <?= dn_get_image_attachment(get_field('about_image_2'), 'about_prev_small', 'section image') ?>
+
+                    </div>
+                </div>
+                <div class="lg:mr-[1.32rem] leading-normal text-light-gray">
+                    <p>
+                        <?= get_field('description_2'); ?>
+                    </p>
+                    <p class="mb-24 sm:mb-32">
+                        <?= get_field('description_3'); ?>
+                    </p>
+                    <button data-target="callback" class="btn btn__main-color h-[.54rem] min-w-[2.63rem]">
+                        <?= pll_e('Contact us for consultation'); ?>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The best price  -->
+    <section>
+        <div class="container">
+            <div class="text-l text-gray mb-4 sm:mb-8 font-bold sm:font-semibold">
+                <?= pll_e('The best price'); ?>
+            </div>
+            <h2 class="mb-32 sm:mb-48">
+                <?= pll_e('All Inclusive Hair Transplantation Package'); ?>
+            </h2>
+            <div class="grid lg:grid-cols-3 gap-20">
+                <?php
+                $packages = get_posts(array(
+                    'post_type' => 'hair-transplantation',
+                    'numberposts' => -1,
+                ));
+                foreach ($packages
+
+                         as $package) {
+                    $packageID = $package->ID;
+                    ?>
+                    <div
+                            data-options
+                            class=" bg-dark-gray p-16 sm:p-24 rounded-md overflow-hidden flex flex-col justify-between h-full"
+                    >
+                        <div class="mb-12 lg:mb-24">
+                            <div class="flex justify-between items-center mb-8">
+                                <h3 class="h-gradient ">
+                                    <?= get_the_title($packageID) ?>
+                                </h3>
+                                <div
+                                        class="bg-accent h5 px-12 py-4 rounded-sm min-w-max ml-4"
+                                >
+                                    <?= get_field('price', $packageID); ?>
+                                </div>
+                            </div>
+                            <div class="font-bold mb-8"><?= pll_e('The price includes:'); ?></div>
+                            <ul class="text-s text-light-gray ">
+                                <?php if (have_rows('price_includes', $packageID)):
+                                    while (have_rows('price_includes', $packageID)) : the_row(); ?>
+
+
+                                        <li class="flex items-center mb-8">
+                                            <span class="icon-done text-main text-m mr-12"></span>
+                                            <div><?= get_sub_field('item'); ?></div>
+                                        </li>
+
+                                    <?php endwhile;
+                                endif;
+                                ?>
+
+
+                            </ul>
+                        </div>
+                        <button
+                                class="option-btn relative w-[.66rem] text-main mx-auto sm:hidden text-s font-normal flex justify-between items-center mb-14"
+                        >
+                            <span><?= pll_e('More'); ?></span>
+                            <span
+                                    class="icon-arrow_s absolute right-0 transition-transform block text-20  -rotate-90"
+                            ></span>
+                        </button>
+
+                        <button data-target="callback" class="btn btn__main-color w-full h-[.46rem]">
+                            <?= pll_e('Contact us for consultation'); ?>
+                        </button>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
     <!-- Why patients choose Turkey -->
     <section>
         <div class="container">

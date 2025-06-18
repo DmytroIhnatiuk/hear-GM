@@ -3,7 +3,7 @@
 if (!function_exists('gm_styles_setup')) :
     function gm_styles_setup()
     {
-        $release_version = '1.4.0';
+        $release_version = '1.4.1';
         wp_enqueue_style('gm-style', get_theme_file_uri('/assets/css/style.min.css'), array(), $release_version);
     }
 endif;
